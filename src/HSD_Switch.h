@@ -14,29 +14,8 @@ unsigned int ASTATE = 0;
 unsigned long millisstart = 0;
 unsigned long millisaktuell = 0;
 unsigned long millisbutton = 0;
+unsigned long millisrefresh = 0;
 
-
-/*
-class HSD
-{
-public:
-
-  HSD();
-  
-  void begin(const char* version, const char* identifier);
-  void work();
-  void publish();
-  
-private:
-};
-
-//HSDMqtt(publish);
-/*
-{
-  publish(),
-};
-
-*/
 String getlink = "INIT1";
 
 
@@ -47,7 +26,7 @@ Bounce Button1 = Bounce();
 Bounce Button2 = Bounce(); 
 
 void callback(char* topic, byte* payload, unsigned int length) {
-  // handle message arrived
+  
 }
 
 void button () {
@@ -59,18 +38,15 @@ Button1.attach( Resetpin );
 Button1.interval(5);
 pinMode(Relaispin, OUTPUT);
 
-/*
-EthernetClient ethClient;
-PubSubClient client(server, 1883, callback, ethClient);
+if (ASTATE == 0)
+{ 
+millisrefresh = millis();
+};
 
-if (client.connect("LEDRahmen", "mqvipertt", "mqahb36wdtt")) {
-    client.publish("outTopic","hello world");
-    client.subscribe("inTopic");
-  }
-}
-*/
-//HTTPClient http;    //Declare object of class HTTPClient
-//delay(500);
+if (millisrefresh + 1000 < millis())
+{
+  ASTATE = 1;
+};
 
   if (Button1.read() == LOW) {
     millisstart = 0;
@@ -100,8 +76,6 @@ if (client.connect("LEDRahmen", "mqvipertt", "mqahb36wdtt")) {
    millisaktuell = (millisstart - millis());
    }
 
-//   Serial.println(millisstart);
-//   Serial.println(millisaktuell);
 
 //    Serial.println("kleiner 1");
     LEDstate = 0;
@@ -138,14 +112,7 @@ if (client.connect("LEDRahmen", "mqvipertt", "mqahb36wdtt")) {
     millisaktuell = 0;
     digitalWrite(Relaispin, LOW);
     
-    //getmqtt(topic2);
-    /*
-    Serial.println("Case 0");
-    Serial.println ("Getlink: ");
-    Serial.print (getlink);
-    Serial.println ("Antwort: ");
-    Serial.print (antwort);
-    */
+    
     if (ASTATE == 1) {
    mqtt1.publish ("ledrahmen/light/mute","0"); 
    ASTATE = 0;
