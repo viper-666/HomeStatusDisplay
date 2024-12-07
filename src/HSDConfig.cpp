@@ -46,8 +46,10 @@ void HSDConfig::begin(const char* defaultIdentifier)
   #ifdef ESP32
     String variantString = ARDUINO_VARIANT;
   #else
-    String variantString = "esp8266";
+    //String variantString = "esp8266";
   #endif
+
+String variantString = "esp8266";
 
   if (variantString == "esp32s3") {
       this->ChipFamily = ImprovTypes::ChipFamily::CF_ESP32_S3;
