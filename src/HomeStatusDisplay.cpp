@@ -35,7 +35,7 @@ void HomeStatusDisplay::begin(const char* identifier)
   improvSerial.setDeviceInfo(m_config.getChipFamily(), identifier, m_config.getVersion(), m_config.getHost());
   improvSerial.onImprovError(std::bind(&HomeStatusDisplay::onImprovWiFiErrorCb, this, std::placeholders::_1));
   improvSerial.onImprovConnected(std::bind(&HomeStatusDisplay::onImprovWiFiConnectedCb, this, std::placeholders::_1, std::placeholders::_2));
-  improvSerial.ConnectToWifi(true);
+  improvSerial.ConnectToWifi();
   
 
   Serial.printf("Free RAM: %d\n", ESP.getFreeHeap());
@@ -55,10 +55,8 @@ void HomeStatusDisplay::onImprovWiFiErrorCb(ImprovTypes::Error err)
   
   if(err == ImprovTypes::Error::ERROR_WIFI_CONNECT_GIVEUP) {
     Serial.println("Giving up on connecting to WiFi, restart the device");
-    if (!m_config.getChipFamily()==4)
-    {
-    ESP.restart();
-    };
+       ESP.restart();
+    
   }
 }
 
