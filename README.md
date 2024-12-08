@@ -4,7 +4,7 @@
 
 **This fork refactures the original code and improved some technicals**
 
-One change is that I add two push buttons and a realais to mute the door bell.
+One change is that I add two push buttons and a realais to mute the door bell and listens on a other port of the Microcrontroller witch will post a MQTT message if the door bell is ringing.
 
 
 Show status information sent via MQTT (e.g. from ioBroker, Home Assistant or any other MQTT-speaking system) using RGB LEDs.
