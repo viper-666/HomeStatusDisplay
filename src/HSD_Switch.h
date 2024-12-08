@@ -38,7 +38,7 @@ Button1.attach( Resetpin );
 Button1.interval(5);
 pinMode(Relaispin, OUTPUT);
 
-if (ASTATE == 0)
+if (millisrefresh == 0)
 { 
 millisrefresh = millis();
 };
@@ -46,6 +46,7 @@ millisrefresh = millis();
 if (millisrefresh + 1000 < millis())
 {
   ASTATE = 1;
+  millisrefresh =0;
 };
 
   if (Button1.read() == LOW) {
