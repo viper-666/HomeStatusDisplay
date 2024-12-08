@@ -16,7 +16,7 @@ This code was tested on a Wemos D1 mini ESP8266. It *should* run on any ESP8266 
 ![alt tag](http://www.bernd-schubart.de/downloads/fhem/fhemstatusdisplay/homestatusdisplay_board.png)
 
 ### Software
-The code was developed using PlatformIO. You dont need to compile it by yourself, please us the [web-installer](https://tobiasfaust.github.io/HomeStatusDisplay/)
+The code was developed using PlatformIO. You dont need to compile it by yourself, please us the [web-installer](https://viper-666.github.io)
 
 You also need a running MQTT broker (e.g. https://mosquitto.org), to which the system you want to monitor (e.g. FHEM) pushes its status information. You can also use a public accessible MQTT-Broker, but its not recommend due security reasons. For example, in FHEM the status information which you want to display, can be configured using the FHEM modules `MQTT` and `MQTT_BRIDGE`.
 
