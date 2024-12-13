@@ -117,7 +117,7 @@ if (millisrefresh + 1000 < millis())
     if (ASTATE == 1) {
    mqtt1.publish ("ledrahmen/light/mute","0"); 
    ASTATE = 0;
-   Serial.println("Case 0");
+   //Serial.println("Case 0");
     }
    break;
 
@@ -128,7 +128,7 @@ if (millisrefresh + 1000 < millis())
    mqtt1.publish ("ledrahmen/light/mute","1"); 
    ASTATE = 0;
    
-    Serial.println("Case 1");
+    //Serial.println("Case 1");
      }
     
    break;
@@ -139,7 +139,7 @@ if (millisrefresh + 1000 < millis())
    mqtt1.publish ("ledrahmen/light/mute","2"); 
    ASTATE = 0;
    
-    Serial.println("Case 2");
+    //Serial.println("Case 2");
      }
    break;
 
@@ -150,7 +150,7 @@ if (millisrefresh + 1000 < millis())
    mqtt1.publish ("ledrahmen/light/mute","3"); 
    ASTATE = 0;
    
-    Serial.println("Case 3");
+   // Serial.println("Case 3");
      }
    break;
 
@@ -161,7 +161,7 @@ if (millisrefresh + 1000 < millis())
    mqtt1.publish ("ledrahmen/light/mute","4"); 
    ASTATE = 0;
    
-    Serial.println("Case 4");
+   // Serial.println("Case 4");
      }
    break;
 
@@ -172,7 +172,7 @@ if (millisrefresh + 1000 < millis())
    mqtt1.publish ("ledrahmen/light/mute","5"); 
    ASTATE = 0;
    
-    Serial.println("Case 5");
+   // Serial.println("Case 5");
      }
    break;
 

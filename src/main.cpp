@@ -28,9 +28,9 @@ void loop() {
   display.work();
  // ArduinoOTA.handle();//check for OTA 
   In();
-  delay (100);
+  delay (50);
   button ();
-  delay (100);
+  delay (50);
 
   
 }
